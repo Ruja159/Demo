@@ -15,7 +15,8 @@ import java.util.stream.Collectors;
 @RequestMapping("/users")
 public class UserController {
 
-    @RequestMapping({"/hello"})
+    @RequestMapping("/123")
+    @GetMapping
     public String hello(){
         return "Hello WOrld";
     }

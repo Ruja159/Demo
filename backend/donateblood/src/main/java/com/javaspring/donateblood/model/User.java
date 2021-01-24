@@ -1,6 +1,7 @@
 package com.javaspring.donateblood.model;
 
 import com.javaspring.donateblood.model.dto.UserDto;
+import com.sun.istack.Nullable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,6 +25,9 @@ public class User {
     private String lastName;
     private String email;
     private String password;
+    private String userName;
+    private String roles;
+    private boolean active;
     @ManyToOne
     BloodType bloodType;
 
@@ -32,6 +36,10 @@ public class User {
         User user=new User();
         user.setName(userDto.getName());
         user.setLastName(userDto.getLastName());
+        user.setEmail(userDto.getEmail());
+        user.setPassword(userDto.getPassword());
+        user.setUserName(userDto.getUserName());
+        user.setRoles(userDto.getRoles());
         return user;
     }
 

@@ -13,6 +13,8 @@ public class UserDto {
     private String lastName;
     private String email;
     private String password;
+    private String userName;
+    private String roles;
     private PlainBloodTypeDto plainBloodTypeDto;
 
     public static UserDto from(User user){
@@ -22,6 +24,8 @@ public class UserDto {
         userDto.setLastName(user.getLastName());
         userDto.setEmail(user.getEmail());
         userDto.setPassword(user.getPassword());
+        userDto.setUserName(user.getUserName());
+        userDto.setRoles(user.getRoles());
         if(Objects.nonNull(user.getBloodType())){
             userDto.setPlainBloodTypeDto(PlainBloodTypeDto.from(user.getBloodType()));
         }
