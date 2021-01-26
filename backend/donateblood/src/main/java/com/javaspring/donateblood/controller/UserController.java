@@ -3,9 +3,12 @@ package com.javaspring.donateblood.controller;
 import com.javaspring.donateblood.model.User;
 import com.javaspring.donateblood.model.dto.UserDto;
 import com.javaspring.donateblood.service.UserService;
+//import com.javaspring.donateblood.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+//import org.springframework.security.authentication.AuthenticationManager;
+//import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

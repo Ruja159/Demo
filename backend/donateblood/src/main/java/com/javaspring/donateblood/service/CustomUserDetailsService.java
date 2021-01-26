@@ -1,6 +1,5 @@
 package com.javaspring.donateblood.service;
 
-import com.javaspring.donateblood.model.MyUserDetails;
 import com.javaspring.donateblood.model.User;
 import com.javaspring.donateblood.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,20 +8,17 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.ArrayList;
 
 @Service
-public class MyUserDetailService implements UserDetailsService {
+public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository repository;
 
     @Override
-    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-       Optional<User> user = userRepository.findByUserName(userName);
-
-       user.orElseThrow(() -> new UsernameNotFoundException("Not found: " + userName));
-
-       return user.map(MyUserDetails::new).get();
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+       User user = repository.findUserByUserName(username);
+       return new org.springframework.security.core.userdetails.User(user.getUserName(),user.getPassword(), new ArrayList<>());
     }
 }
