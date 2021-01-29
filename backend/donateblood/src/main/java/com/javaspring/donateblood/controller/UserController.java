@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -38,7 +39,6 @@ public class UserController {
         return new ResponseEntity<>(UserDto.from(user), HttpStatus.OK);
 
     }
-
     @GetMapping
     public ResponseEntity<List<UserDto>> getUsers(){
         List<User> users = userService.getUsers();

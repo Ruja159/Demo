@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="donateBlood">
+      <div class="col">
+        <form
+          class="text-center"
+          #userForm="ngForm"
+          (ngSubmit)="onSubmit()"
+          novalidate
+        >
+          <!-- {{ userForm.value | json }} -->
+
+          <!-- {{userModel | json}} -->
+          <p class="h4 mb-4">Sign in</p>
+
+          <div class="form-group text-left">
+            <label>User name</label>
+            <input
+              class="form-control"
+              type="text"
+              required
+              #name="ngModel"
+              [class.is-invalid]="name.invalid && name.touched"
+              placeholder="User name"
+              name="userName"
+              [(ngModel)]="userModel.userName"
+            />
+            <div *ngIf="isLoginError" class="red-text center error-message">
+              <i class="material-icons" class="text-danger">Incorrect username or password</i>
+            </div>
+            <small
+              [class.d-none]="name.valid || name.untouched"
+              class="text-danger"
+              >Username is required</small
+            >
+          </div>
+
+          <div class="form-group text-left">
+            <label>Password</label>
+            <input
+              class="form-control"
+              type="password"
+              placeholder="Password"
+              name="password"
+              [(ngModel)]="userModel.password"
+            />
+            <div *ngIf="isLoginError" class="red-text center error-message">
+              <i class="material-icons" class="text-danger">Incorrect username or password</i>
+            </div>
+          </div>
+
+          <button
+            [disabled]="userForm.form.invalid"
+            class="btn btn-lg btn-primary btn-block"
+            type="submit"
+          >
+            Sign In
+          </button>
+
+          <div>
+            <a href="">Forgot password?</a>
+          </div>
+
+          <div class="line"></div>
+
+          <button class="btn btn-lg btn-success"  routerLink="/registration">Create new account</button>
+        </form>
+      </div>
+      {{response}}
+    </div>
+  </div>
+</div>

@@ -4,11 +4,10 @@ import com.javaspring.donateblood.model.AuthRequest;
 import com.javaspring.donateblood.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 public class WelcomeController {
@@ -19,7 +18,7 @@ public class WelcomeController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-    @GetMapping("/welcome")
+    @GetMapping("/")
     public String welcome(){
         return "Welcome to ALeksandar!!" ;
     }
@@ -28,12 +27,13 @@ public class WelcomeController {
     public String generateToken(@RequestBody AuthRequest authRequest) throws Exception{
 
        try {
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUserName(), authRequest.getPassword()));
+            authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(authRequest.getUserName(), authRequest.getPassword()));
         }
-       catch (Exception exception){
-           throw new Exception("invalid username or pass");
+       catch (BadCredentialsException ex){
+           throw new Exception("invalid username or pass", ex);
        }
-      return jwtUtil.generateToken(authRequest.getUserName());
+      return  jwtUtil.generateToken(authRequest.getUserName());
 
     }
 }
