@@ -26,8 +26,6 @@ public class User {
     private String email;
     private String password;
     private String userName;
-    private String roles;
-    private boolean active;
     @ManyToOne
     BloodType bloodType;
 
@@ -39,7 +37,6 @@ public class User {
         user.setEmail(userDto.getEmail());
         user.setPassword(userDto.getPassword());
         user.setUserName(userDto.getUserName());
-        user.setRoles(userDto.getRoles());
         return user;
     }
 

@@ -15,6 +15,16 @@ export class RegistrationComponent implements OnInit {
   get userName() {
     return this.registrationForm.get('userName');
   }
+  get name() {
+    return this.registrationForm.get('name');
+  }
+  get lastName() {
+    return this.registrationForm.get('lastName');
+  }
+
+  get email() {
+    return this.registrationForm.get('email');
+  }
 
   constructor(private fb: FormBuilder, private registrationService: RegistrationServiceService) {}
 
@@ -30,22 +40,18 @@ export class RegistrationComponent implements OnInit {
             forbiddenNameValidator(/password/),
           ],
         ],
-        password: ['', [Validators.minLength(8)]],
+        password: ['', [Validators.minLength(8)],],
         confirmPassword: [''],
-        firstName: [''],
-        lastName: [''],
-        email: [''],
-        address: this.fb.group({
-          city: [''],
-          postalCode: [''],
-        }),
-      },
+        name: ['',[ Validators.required]],
+        lastName: ['',[ Validators.required]],
+        email: ['',[ Validators.required]],
+             },
       { validator: PasswordValidator }
     );
   }
   onSubmit(){
     console.log(this.registrationForm.value);
-    this.registrationService.register(this.registrationForm.value)
+    this.registrationService.addUser(this.registrationForm.value)
     .subscribe(
       response => console.log('Success', response),
       error => console.error('Error', error)

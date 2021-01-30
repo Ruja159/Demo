@@ -1,21 +1,18 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="http://localhost:4200/home">Home</a>
-  <form class="form-inline my-2 my-lg-0" >
-    <input
-      class="form-control mr-sm-2"
-      type="search"
-      placeholder="Search"
-      aria-label="Search"
-    />
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-      Search
-    </button>
-  </form>
+<div 
+  class="main-wrapper"
+  gdAreas="header | content | footer"
+  gdGap="16px"
+  gdRows="auto auto auto">
+  <div class="header" gdArea="header">
+    <app-header></app-header>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
-  <a class="navbar-brand" href="" (click)="Logout()">Logout</a>
-</nav>
-<button class="btn btn-primary" (click)="getUsers()">get users</button>
-<div>
-    {{listOfUsers}}
+   </div>
+  <div class="content" gdArea="content">
+    <router-outlet></router-outlet>
+    <!-- <button routerLink="/home/card">yovi card</button> --> 
+
+  </div>
+  <div class="footer" gdArea="footer">
+    <app-footer></app-footer>
+  </div>
 </div>

@@ -9,13 +9,19 @@ import { FooterComponent } from './footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtClientService } from './jwt-client.service';
 import { AuthGuard } from './auth/auth.guard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularMaterialModule } from './material.module'; 
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { CardComponent } from './card/card.component';
+import { HeaderComponent } from './header/header.component';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
   declarations: [
     AppComponent, 
     LoginComponent,
     routingComponents, 
-    FooterComponent
+    FooterComponent, CardComponent, HeaderComponent, TableComponent
   ],
   imports: [
     BrowserModule, 
@@ -23,7 +29,11 @@ import { AuthGuard } from './auth/auth.guard';
     NgbModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    AngularMaterialModule,
+    FlexLayoutModule
+
   ],
   providers: [JwtClientService,AuthGuard],
   bootstrap: [AppComponent],

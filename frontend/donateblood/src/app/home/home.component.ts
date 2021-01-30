@@ -17,15 +17,4 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
    
   }
-
-  Logout() {
-    localStorage.removeItem('jwt');
-    this.router.navigate(['/login']);
-  }
-
-  getUsers() {
-    this.service.getUsers().subscribe((data: any) => {
-      this.listOfUsers = data
-    });
-  }
 }

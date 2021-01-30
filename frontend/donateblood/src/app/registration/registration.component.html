@@ -8,8 +8,7 @@
             
             <div class="form-group text-left">
               <label>User name</label>
-              <input [class.is-invalid]="userName.invalid &&
-              userName.touched" formControlName="userName" class="form-control"type="text" placeholder="User name"
+              <input  formControlName="userName" class="form-control"type="text" placeholder="User name"
               />
       
               <div *ngIf="userName.invalid && userName.touched">
@@ -21,19 +20,28 @@
             </div>
             <div class="form-group text-left">
               <label>First name</label>
-              <input formControlName="firstName" class="form-control"type="text" placeholder="User name"
+              <input [class.is-invalid]="name.invalid &&
+              name.touched" formControlName="name" class="form-control"type="text" placeholder="First name"
               />
+              <small  [class.d-none]="name.valid ||
+              name.untouched" class="text-danger">First name is required</small>
             </div>
             <div class="form-group text-left">
               <label>Last name</label>
-              <input formControlName="lastName" class="form-control"type="text" placeholder="User name"
+              <input [class.is-invalid]="lastName.invalid &&
+              lastName.touched" formControlName="lastName" class="form-control"type="text" placeholder="Last name"
               />
+              <small  [class.d-none]="lastName.valid ||
+              lastName.untouched" class="text-danger">Last name is required</small>
             </div>
             
             <div class="form-group text-left">
                 <label>Email</label>
-                <input formControlName="email" class="form-control" type="email" placeholder="example@gmail.com"
+                <input [class.is-invalid]="email.invalid &&
+                email.touched" formControlName="email" class="form-control" type="email" placeholder="example@gmail.com"
                 />
+                <small  [class.d-none]="email.valid ||
+              email.untouched" class="text-danger">Email name is required</small>
               </div>
   
             <div class="form-group text-left">
@@ -51,23 +59,7 @@
                 <small class="text-danger" *ngIf="registrationForm.hasError('misMatch')" >Passwords do not match</small>
               </div>
 
-              <div formGroupName="address">
-
-                
-            <div class="form-group text-left">
-              <label>City</label>
-              <input formControlName="city"class="form-control" type="text" placeholder="Banja Luka" />
-            </div>
-            
-            <div class="form-group text-left">
-              <label>Postal Code</label>
-              <input formControlName="postalCode"class="form-control" type="text" placeholder="79 000" />
-            </div>
-            
-                   
-              </div>
-
-            
+                 
                 <button [disabled]="!registrationForm.valid" class="btn btn-lg btn-success btn-block" type="submit">Register</button>
           
   
