@@ -1,0 +1,17 @@
+<h4>Basic mat-select</h4>
+<form #bloodTypeForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+    {{bloodTypeForm.value | json}}
+    {{bloodTypeModel | json}}
+<div class="form-group">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Your bloodType</mat-label>
+      <mat-select [(ngModel)]="bloodTypeModel.id" name="bloodType">
+        <mat-option *ngFor="let bloodType of bloodTypes"[value]="bloodType.id"  >
+          {{bloodType.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+</div>
+    <button mat-button type="submit">Add your blood</button>
+</form>

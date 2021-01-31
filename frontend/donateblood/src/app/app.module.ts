@@ -15,13 +15,18 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { CardComponent } from './card/card.component';
 import { HeaderComponent } from './header/header.component';
 import { TableComponent } from './table/table.component';
+import { Card2Component } from './card2/card2.component';
+import { Card3Component } from './card3/card3.component';
+import { AddyourbloodytpeComponent } from './addyourbloodytpe/addyourbloodytpe.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
 
 @NgModule({
+
   declarations: [
     AppComponent, 
     LoginComponent,
     routingComponents, 
-    FooterComponent, CardComponent, HeaderComponent, TableComponent
+    FooterComponent, CardComponent, HeaderComponent, TableComponent, Card2Component, Card3Component, AddyourbloodytpeComponent, AboutusComponent,
   ],
   imports: [
     BrowserModule, 

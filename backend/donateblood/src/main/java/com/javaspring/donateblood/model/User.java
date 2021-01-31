@@ -30,6 +30,8 @@ public class User {
     BloodType bloodType;
 
 
+
+
     public static User from(UserDto userDto){
         User user=new User();
         user.setName(userDto.getName());

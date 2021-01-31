@@ -9,7 +9,15 @@ export class CardComponent implements OnInit {
 
   constructor() { }
 
+  showShortDesciption: boolean = true
+
   ngOnInit(): void {
+
+    
   }
+  alterDescriptionText(){
+    this.showShortDesciption = !this.showShortDesciption
+  }
+
 
 }

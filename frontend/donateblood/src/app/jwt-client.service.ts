@@ -26,4 +26,14 @@ export class JwtClientService {
     const headers = new HttpHeaders().set("Authorization", 'Bearer ' + localStorage.getItem('jwt'));
     return this.http.get(`${baseUrl}users`,{headers,responseType: 'text' as 'json'})
   }
+
+  getBloodTypes(){
+    const headers = new HttpHeaders().set("Authorization", 'Bearer ' + localStorage.getItem('jwt'));
+    return this.http.get(`${baseUrl}bloodType`,{headers,responseType: 'text' as 'json'})
+  }
+
+  getUser(userName){
+    const headers = new HttpHeaders().set("Authorization", 'Bearer ' + localStorage.getItem('jwt'));
+    return this.http.get(`${baseUrl}users/${userName}`,{headers,responseType: 'text' as 'json'})
+  }
 }

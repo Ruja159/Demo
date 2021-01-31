@@ -4,13 +4,10 @@
   gdGap="16px"
   gdRows="auto auto auto">
   <div class="header" gdArea="header">
-    <app-header></app-header>
-
+    <app-header [deviceXs] = "deviceXs"></app-header>
    </div>
   <div class="content" gdArea="content">
     <router-outlet></router-outlet>
-    <!-- <button routerLink="/home/card">yovi card</button> --> 
-
   </div>
   <div class="footer" gdArea="footer">
     <app-footer></app-footer>

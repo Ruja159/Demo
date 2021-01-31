@@ -46,12 +46,12 @@ public class UserController {
         return new ResponseEntity<>(userDto, HttpStatus.OK);
     }
 
-    @GetMapping(value = "{id}")
-    public ResponseEntity<UserDto> getUser(@PathVariable final Long id){
-
-        User user = userService.getUserById(id);
-        return new ResponseEntity<>(UserDto.from(user), HttpStatus.OK);
-    }
+//    @GetMapping(value = "{id}")
+//    public ResponseEntity<UserDto> getUser(@PathVariable final Long id){
+//
+//        User user = userService.getUserById(id);
+//        return new ResponseEntity<>(UserDto.from(user), HttpStatus.OK);
+//    }
 
     @DeleteMapping(value = "{id}")
     public ResponseEntity<UserDto> deleteUser(@PathVariable final Long id){
@@ -65,5 +65,12 @@ public class UserController {
         User editedUser = userService.editUser(id,User.from(userDto));
         return new ResponseEntity<>(UserDto.from(editedUser), HttpStatus.OK);
 
+    }
+
+    @GetMapping(value = "{userName}")
+    public ResponseEntity<UserDto> getUser(@PathVariable final String userName){
+
+        User user = userService.getUserByUserName(userName);
+        return new ResponseEntity<>(UserDto.from(user), HttpStatus.OK);
     }
 }

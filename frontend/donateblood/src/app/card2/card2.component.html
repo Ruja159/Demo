@@ -1,0 +1,29 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Universal blood donor</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="../assets/asd.jpg" alt=""  class="img"/>
+    <mat-card-content>
+      <p  class="show" [ngClass]="{'show': showShortDesciption ==true}">
+        Universal donors are those with an O negative blood type. Why? O
+        negative blood can be used in transfusions for any blood type. Type O is
+        routinely in short supply and in high demand by hospitals – both because
+        it is the most common blood type and because type O negative blood is
+        the universal blood type needed for emergency transfusions and for
+        immune deficient infants. Approximately 45 percent of Caucasians are
+        type O (positive or negative), but 51 percent of African-Americans and
+        57 percent of Hispanics are type O. Minority and diverse populations,
+        therefore, play a critical role in meeting the constant need for blood.
+        Types O negative and O positive are in high demand. Only 7% of the
+        population are O negative. However, the need for O negative blood is the
+        highest because it is used most often during emergencies. The need for
+        O+ is high because it is the most frequently occurring blood type (37%
+        of the population). The universal red cell donor has Type O negative
+        blood. The universal plasma donor has Type AB blood. For more about
+        plasma donation, visit the plasma donation facts.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button  mat-button (click)="alterDescriptionText()">{{ showShortDesciption ? 'Read more': 'Read less' }}</button>
+    </mat-card-actions>
+  </mat-card>

@@ -1,13 +1,4 @@
-  .example-card {
-    max-width: 300px;
-  }
-  
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  }
-  
-  /* .example-card {
+/* .example-card {
   width: 30%;
   float: left;
   margin: 50px 20px;
@@ -22,6 +13,16 @@
   height: 90px;
   overflow: hidden;
 } 
+
+.example-card {
+  max-width: 300px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
 .img{
   max-height: 220px;
 }

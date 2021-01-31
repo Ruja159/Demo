@@ -16,7 +16,6 @@ import { UsersList } from '../usersList';
 export class TableComponent implements OnInit {
   userList: any;
 
-
   displayedColumns: string[] = ['id', 'name', 'lastName', 'email'];
   dataSource: MatTableDataSource<[any]>;
 
