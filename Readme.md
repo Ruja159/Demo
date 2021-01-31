@@ -43,10 +43,8 @@ _Demo/backend/donateblood/src/main/resources/application.properties_
 
 
 3. Navigate to _Demo/backend/donateblood/target_ and run command:  
-        ```java -jar <.jar filename>```  
-   
-        **Example:**  
-	 ``` java -jar donateblood-0.0.1-SNAPSHOT.jar ```   
+        ```java -jar <.jar filename>```   
+**Example:** ``` java -jar donateblood-0.0.1-SNAPSHOT.jar```   
 
 
 # Running frontend  
