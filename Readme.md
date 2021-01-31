@@ -27,9 +27,9 @@
 _Demo/backend/donateblood/src/main/resources/application.properties_  
     ```sh
     spring.datasource.driver-class-name = com.mysql.cj.jdbc.Driver
-    spring.datasource.url = jdbc:mysql://localhost:3306/<your_database_name>
-    spring.datasource.username = <user_name>
-    spring.datasource.password = <password>
+    spring.datasource.url = jdbc:mysql://localhost:3306/**<your_database_name>**
+    spring.datasource.username = **<user_name>**
+    spring.datasource.password = **<password>**
     
     spring.jpa.show-sql = true
     spring.jpa.hibernate.ddl-auto = update
