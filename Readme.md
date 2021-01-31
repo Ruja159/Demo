@@ -2,7 +2,7 @@
 # Java Spring - Angular Demo Project!
 
   - This project aims to demonstrate the use of the Java Spring and Angular framework for web application development.  
- This project also employs:
+ This project also employs:  
 •	Maven to build files with the necessary dependencies from Spring Initializr.  
 •	Spring Boot   
 •	Spring Data JPA for data access  
@@ -45,7 +45,8 @@ _Demo/backend/donateblood/src/main/resources/application.properties_
 3. Navigate to _Demo/backend/donateblood/target_ and run command:  
         ```
             java -jar <_.jar filename_>  
-        ``` 
+ 
+        ```   
         **Example:** ``` java -jar donateblood-0.0.1-SNAPSHOT.jar ```   
 
 
