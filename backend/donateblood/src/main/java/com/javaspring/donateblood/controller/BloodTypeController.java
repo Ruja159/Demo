@@ -1,8 +1,10 @@
 package com.javaspring.donateblood.controller;
 
 import com.javaspring.donateblood.model.BloodType;
+import com.javaspring.donateblood.model.User;
 import com.javaspring.donateblood.model.dto.BloodTypeDto;
 import com.javaspring.donateblood.service.BloodTypeService;
+import com.javaspring.donateblood.service.UserService;
 import org.hibernate.type.BlobType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,10 +19,12 @@ import java.util.stream.Collectors;
 public class BloodTypeController {
 
     private final BloodTypeService bloodTypeService;
+    private final UserService userService;
 
     @Autowired
-    public BloodTypeController(BloodTypeService bloodTypeService) {
+    public BloodTypeController(BloodTypeService bloodTypeService, UserService userService) {
         this.bloodTypeService = bloodTypeService;
+        this.userService = userService;
     }
 
 
@@ -57,10 +61,12 @@ public class BloodTypeController {
         return new ResponseEntity<>(BloodTypeDto.from(bloodType), HttpStatus.OK);
     }
 
-    @PostMapping(value = "{bloodTypeId}/users/{userId}/add")
+    @PostMapping(value = "{bloodTypeId}/users/{userName}/add")
     public ResponseEntity<BloodTypeDto> addUserToBloodType(@PathVariable final Long bloodTypeId,
-                                                           @PathVariable final Long userId){
-        BloodType bloodType = bloodTypeService.addUserToBloodType(bloodTypeId,userId);
+                                                           @PathVariable final String userName){
+        User user = userService.getUserByUserName(userName);
+
+        BloodType bloodType = bloodTypeService.addUserToBloodType(bloodTypeId,user.getId());
         return new ResponseEntity<>(BloodTypeDto.from(bloodType), HttpStatus.OK);
     }
 
