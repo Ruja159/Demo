@@ -1,7 +1,9 @@
 package com.javaspring.donateblood;
 
+import com.javaspring.donateblood.model.BloodType;
 import com.javaspring.donateblood.model.User;
 import com.javaspring.donateblood.repository.UserRepository;
+import com.javaspring.donateblood.service.BloodTypeService;
 import com.javaspring.donateblood.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -43,8 +45,36 @@ public class DonatebloodApplication {
 			userService.addUser(user);
 		}
 	}
+
+	@Autowired
+	private BloodTypeService bloodTypeService;
+	private void seedBloodTypeTable() {
+		List<BloodType> u = bloodTypeService.getBloodTypes();
+		if(u == null || u.size() <= 0) {
+			BloodType bloodTypeop = new BloodType();
+			bloodTypeop.setName("0+");
+			bloodTypeService.addBloodType(bloodTypeop);
+			BloodType bloodType = new BloodType();
+			bloodType.setName("0-");
+			bloodTypeService.addBloodType(bloodType);
+			bloodType.setName("A-");
+			bloodTypeService.addBloodType(bloodType);
+			bloodType.setName("A+");
+			bloodTypeService.addBloodType(bloodType);
+			bloodType.setName("B+");
+			bloodTypeService.addBloodType(bloodType);
+			bloodType.setName("B-");
+			bloodTypeService.addBloodType(bloodType);
+			bloodType.setName("AB-");
+			bloodTypeService.addBloodType(bloodType);
+			bloodType.setName("AB+");
+			bloodTypeService.addBloodType(bloodType);
+
+		}
+	}
 	@EventListener
 	public void seed(ContextRefreshedEvent event) {
+		seedBloodTypeTable();
 		seedUsersTable();
 	}
 

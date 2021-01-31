@@ -5,6 +5,7 @@ import com.javaspring.donateblood.model.dto.UserDto;
 import com.javaspring.donateblood.service.UserService;
 //import com.javaspring.donateblood.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpOutputMessage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 //import org.springframework.security.authentication.AuthenticationManager;
@@ -33,8 +34,12 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserDto> addUser(@RequestBody final UserDto userDto){
+    public ResponseEntity<Object> addUser(@RequestBody final UserDto userDto){
+        User checkUser = userService.getUserByUserName(userDto.getUserName());
+        if (checkUser != null) {
 
+            return new ResponseEntity<Object>("User_already_Exists", HttpStatus.OK);
+        }
         User user = userService.addUser(User.from(userDto));
         return new ResponseEntity<>(UserDto.from(user), HttpStatus.OK);
 
