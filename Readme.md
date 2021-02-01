@@ -55,3 +55,8 @@ _Demo/backend/donateblood/src/main/resources/application.properties_
 
 The application frontent will be available at ``http://localhost:4200`` by default  
 The backend application will be available at ``http://localhost:8080`` by default  
+
+**Note:**  
+
+Within the project there is a Seed User and a Seed Blood type.  
+Once the code is run, the user data and blood type will be written to the database.

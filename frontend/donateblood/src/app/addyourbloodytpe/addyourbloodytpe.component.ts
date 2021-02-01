@@ -11,6 +11,7 @@ import { JwtClientService } from '../jwt-client.service';
 export class AddyourbloodytpeComponent implements OnInit {
 
   bloodTypeGroup: FormGroup
+  username = localStorage.getItem('userName')
 
   constructor(private service: JwtClientService) { }
 
@@ -27,6 +28,11 @@ bloodTypeModel= new BloodType('')
   }
 
   onSubmit(){
+
+    this.service.addBloodType(this.username,this.bloodTypeModel.id)
+    .subscribe(
+      response => console.log("Success" ,response)
+    )
     console.log(this.bloodTypeModel);
 
   }

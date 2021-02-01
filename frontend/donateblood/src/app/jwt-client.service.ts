@@ -36,4 +36,9 @@ export class JwtClientService {
     const headers = new HttpHeaders().set("Authorization", 'Bearer ' + localStorage.getItem('jwt'));
     return this.http.get(`${baseUrl}users/${userName}`,{headers,responseType: 'text' as 'json'})
   }
+
+  addBloodType(userName,id){
+    const headers = new HttpHeaders().set("Authorization", 'Bearer ' + localStorage.getItem('jwt'));
+    return this.http.post(`${baseUrl}bloodType/${id}/users/${userName}/add`, {headers,responseType: 'text' as 'json'})
+  }
 }

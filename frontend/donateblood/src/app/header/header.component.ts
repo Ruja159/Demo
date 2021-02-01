@@ -16,6 +16,7 @@ export class HeaderComponent  {
 
   Logout() {
     localStorage.removeItem('jwt');
+    localStorage.removeItem('userName');
     this.router.navigate(['/login']);
   }
 

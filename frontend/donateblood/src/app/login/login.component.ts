@@ -29,10 +29,10 @@ export class LoginComponent implements OnInit {
       (data: any) => {
         console.log(data);
         localStorage.setItem('jwt', data);
-        const decodeToken = jwt_decode(data);
+        const decodeToken  = jwt_decode(data);
         this.userName = decodeToken;
-        // console.log(decodeToken);
-        console.log(this.userName)
+        localStorage.setItem('userName', this.userName.sub);
+        console.log(this.userName.sub)
 
         this.router.navigate(['/home']);
       },
