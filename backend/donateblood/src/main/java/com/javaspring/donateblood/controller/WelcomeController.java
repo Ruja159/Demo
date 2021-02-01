@@ -2,13 +2,15 @@ package com.javaspring.donateblood.controller;
 
 import com.javaspring.donateblood.model.AuthRequest;
 import com.javaspring.donateblood.util.JwtUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 
-
+@Api( tags = "Authenticate")
 @RestController
 public class WelcomeController {
 
@@ -18,11 +20,7 @@ public class WelcomeController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-    @GetMapping("/")
-    public String welcome(){
-        return "Welcome to ALeksandar!!" ;
-    }
-
+    @ApiOperation(value = "This metod generates a token ")
     @PostMapping("/authenticate")
     public String generateToken(@RequestBody AuthRequest authRequest) throws Exception{
 
